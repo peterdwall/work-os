@@ -1,0 +1,14 @@
+modules:
+  - type: fonts
+    fonts:
+      google-fonts:
+        - Fira Code
+        - Open Sans
+        - JetBrains Mono
+        - Roboto
+
+  - type: brew
+    nofile-limits: true
+    brew-analytics: false
+
+  - type: yafti

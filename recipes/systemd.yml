@@ -1,0 +1,11 @@
+type: systemd
+system:
+  enabled:
+    - docker.socket
+    - user-groups.service
+    - plymouth-theme.service
+    - boot-swap.service
+    - hibernate-swap.service
+    - hibernate-swap-resume.service
+    - suspend-hibernate-swap.service
+    - suspend-hibernate-swap-resume.service
