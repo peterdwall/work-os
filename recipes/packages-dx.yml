@@ -18,11 +18,10 @@ modules:
       - podman-compose
       - podman-tui
       - podmansh
-      # - docker-ce
-      # - docker-ce-cli
-      # - docker-buildx-plugin
-      # - docker-compose-plugin
-      # - containerd.io
+      - docker-cli
+      - docker-buildx
+      - docker-compose
+      - containerd
       - playerctl
       - nautilus-gsconnect
       - python3-pip

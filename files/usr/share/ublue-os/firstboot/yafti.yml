@@ -49,8 +49,8 @@ screens:
       show_terminal: true
       package_manager: yafti.plugin.flatpak
       package_manager_defaults:
-        user: true
-        system: false
+        user: false
+        system: true
       groups:
         SkyWire Applications:
           description: Applications used for work
@@ -59,24 +59,36 @@ screens:
             - Slack: com.slack.Slack
             - Winbox 4: com.mikrotik.WinBox
             - Visual Studio Code: com.visualstudio.code
-        Core GNOME Apps:
-          description: Core system applications for the GNOME desktop environment.
-          default: false
-          packages:
-            - Characters: org.gnome.Characters
-            - Disk Usage Analyzer: org.gnome.baobab
-            - Font Viewer: org.gnome.font-viewer
-            - Logs: org.gnome.Logs
-            - Maps: org.gnome.Maps
-            - Photos (Organizer): org.gnome.Photos
-            - Sushi (Nautilus Previewer): org.gnome.NautilusPreviewer
-            - Weather: org.gnome.Weather
         System Apps:
           description: System applications for all desktop environments.
           default: true
           packages:
             - Fedora Media Writer: org.fedoraproject.MediaWriter
             - Font Downloader: org.gustavoperedo.FontDownloader
+        Core GNOME Apps:
+          description: Core system applications for the GNOME desktop environment.
+          default: false
+          packages:
+            - Calculator: org.gnome.Calculator
+            - Calendar: org.gnome.Calendar
+            - Camera: org.gnome.Snapshot
+            - Characters: org.gnome.Characters
+            - Clocks: org.gnome.clocks
+            - Connections: org.gnome.Connections
+            - Contacts: org.gnome.Contacts
+            - Disk Usage Analyzer: org.gnome.baobab
+            - Document Scanner: org.gnome.SimpleScan
+            - Document Viewer: org.gnome.Evince
+            - Extension Manager: com.mattjakeman.ExtensionManager
+            - Font Viewer: org.gnome.font-viewer
+            - Image Viewer: org.gnome.Loupe
+            - Logs: org.gnome.Logs
+            - Maps: org.gnome.Maps
+            - Photos (Organizer): org.gnome.Photos
+            - Sushi (Nautilus Previewer): org.gnome.NautilusPreviewer
+            - Text Editor: org.gnome.TextEditor
+            - Videos (Player): org.gnome.Totem
+            - Weather: org.gnome.Weather
         Web Browsers:
           description: Additional browsers to complement or replace Firefox.
           default: false
