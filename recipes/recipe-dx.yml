@@ -17,7 +17,7 @@ modules:
       - source: usr
         destination: /usr
 
-  - from-file: packages.yml
+#  - from-file: packages.yml
   - from-file: packages-dx.yml
 #  - from-file: systemd.yml
   - from-file: extra_steps.yml
