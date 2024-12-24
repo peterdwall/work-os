@@ -1,11 +1,8 @@
 modules:
   - type: gnome-extensions
     install:
-    - just-perfection-desktopjust-perfection.v30
-    - hibernate-statusdromi.v41
-    - gsconnectandyholmes.github.io.v58
-    - dash-to-paneljderose9.github.com.v64
-    - blur-my-shellaunetx.v67
-    - appindicatorsupportrgcjonas.gmail.com.v59
-    - disable-workspace-animationethnarque.v6
+    - Just Perfection
+    - GSConnect
+    - Dash to Panel
+    - AppIndicator and KStatusNotifierItem Support 
     # - power-profile-switchereliapasquali.github.io.v20

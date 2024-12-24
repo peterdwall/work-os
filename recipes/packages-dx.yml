@@ -1,0 +1,88 @@
+modules:
+  - type: rpm-ostree
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
+
+    install:
+      # - auto-cpufreq
+      - android-tools
+      - ansible
+      - cockpit
+      - jq
+      - zsh
+      - mosh
+      - micro
+      - gnome-boxes
+      - p7zip
+      - p7zip-plugins
+      - podman-compose
+      - podman-tui
+      - podmansh
+      - docker-ce
+      - docker-ce-cli
+      - docker-buildx-plugin
+      - docker-compose-plugin
+      - containerd.io
+      - playerctl
+      - nautilus-gsconnect
+      - python3-pip
+      - samba
+      - samba-dcerpc
+      - samba-ldb-ldap-modules
+      - samba-winbind-clients
+      - samba-winbind-modules
+      - libvirt
+      - qemu-char-spice
+      - qemu-device-display-virtio-gpu
+      - qemu-device-display-virtio-vga
+      - qemu-device-usb-redirect
+      - qemu-img
+      - qemu-system-x86-core
+      - qemu-user-binfmt
+      - qemu-user-static
+      - qemu
+      - python-devel
+      - binutils
+      - dmidecode
+      - gcc
+
+    remove:
+      - firefox # remove system firefox to install Flatpak firefox
+      - firefox-langpacks
+      # - gnome-terminal
+      # - gnome-terminal-nautilus
+      # - gnome-software-rpm-ostree
+      - gnome-tour
+      - gnome-initial-setup
+
+
+  - type: default-flatpaks
+    notify: true
+    system:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub-system
+      repo-title: "Flathub (System)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
+      install:
+        - org.gnome.Calculator
+        - org.gnome.Calendar
+        - org.gnome.Snapshot
+        - org.gnome.Contacts
+        - org.gnome.clocks
+        - org.gnome.Evince
+        - org.gnome.TextEditor
+        - org.gnome.Loupe
+        - io.missioncenter.MissionCenter
+        - com.vixalien.sticky
+        - com.github.tchx84.Flatseal
+        - com.mattjakeman.ExtensionManager
+        - io.github.flattool.Warehouse
+        - org.mozilla.firefox
+        - it.mijorus.gearlever
+        - org.kde.konsole
+        - com.slack.Slack
+        - com.mikrotik.WinBox
+        - com.visualstudio.code
+    user:
+      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+      repo-name: flathub-user
+      repo-title: "Flathub"
