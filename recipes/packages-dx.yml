@@ -53,7 +53,6 @@ modules:
       # - gnome-terminal-nautilus
       # - gnome-software-rpm-ostree
       - gnome-tour
-      - gnome-initial-setup
 
 
   - type: default-flatpaks
@@ -63,14 +62,6 @@ modules:
       repo-name: flathub-system
       repo-title: "Flathub (System)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        - org.gnome.Calculator
-        - org.gnome.Calendar
-        - org.gnome.Snapshot
-        - org.gnome.Contacts
-        - org.gnome.clocks
-        - org.gnome.Evince
-        - org.gnome.TextEditor
-        - org.gnome.Loupe
         - io.missioncenter.MissionCenter
         - com.vixalien.sticky
         - com.github.tchx84.Flatseal
@@ -78,10 +69,6 @@ modules:
         - io.github.flattool.Warehouse
         - org.mozilla.firefox
         - it.mijorus.gearlever
-        - org.kde.konsole
-        - com.slack.Slack
-        - com.mikrotik.WinBox
-        - com.visualstudio.code
     user:
       repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
       repo-name: flathub-user
