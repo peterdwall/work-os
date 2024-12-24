@@ -1,0 +1,19 @@
+modules:
+  - type: fonts
+    fonts:
+      google-fonts:
+        - Fira Code
+        - Open Sans
+        - JetBrains Mono
+        - Roboto
+      nerd-fonts:
+        - FiraCode # don't add spaces or "Nerd Font" suffix
+        - Hack
+        - Meslo
+        - RobotoMono
+        - SourceCodePro
+        - Terminus
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+
+  - type: yafti
