@@ -1,10 +1,10 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
 
-name: skywire-dx
+name: skywire-kde
 description: A stable Linux system for developers and power users
 
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/kinoite-main
 image-version: 41
 
 # module configuration, executed in order
@@ -14,11 +14,10 @@ modules:
       - source: usr
         destination: /usr
 
-  - from-file: common/packages-dx.yml
+  - from-file: common/packages-kde.yml
   - from-file: common/cockpit.yml
   - from-file: common/docker-dx.yml
   - from-file: common/extra_steps.yml
-  - from-file: common/gnome-extensions.yml
   
   # Install Homebrew to allow installing command-line tools more easily
   - type: brew

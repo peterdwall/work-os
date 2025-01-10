@@ -1,0 +1,13 @@
+modules:
+  - type: rpm-ostree
+    install:
+      - cockpit
+      - cockpit-ostree
+      - cockpit-networkmanager
+      - cockpit-sosreport
+      - cockpit-files
+
+  - type: systemd
+    system:
+      enabled:
+        - cockpit.socket

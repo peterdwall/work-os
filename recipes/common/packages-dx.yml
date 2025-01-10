@@ -2,16 +2,15 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
-      - https://packages.microsoft.com/yumrepos/vscode/config.repo
+      # - https://packages.microsoft.com/yumrepos/vscode/config.repo
       - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
 
     install:
-      - code
+      # - code
       - tailscale
       # - auto-cpufreq
       - android-tools
       - ansible
-      - cockpit
       - jq
       - zsh
       - mosh
@@ -76,12 +75,7 @@ modules:
         - io.github.flattool.Warehouse
         - org.mozilla.firefox
         - it.mijorus.gearlever
-    user:
-      repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
-      repo-name: flathub-user
-      repo-title: "Flathub"
-      install:
-        # Work apps
+        - org.libreoffice.LibreOffice
+        - com.visualstudio.code
         - com.slack.Slack
         - com.mikrotik.WinBox
-        #- com.visualstudio.code

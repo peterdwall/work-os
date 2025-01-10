@@ -1,43 +1,50 @@
-# work-os &nbsp; [![bluebuild build badge](https://github.com/peterdwall/work-os/actions/workflows/build.yml/badge.svg)](https://github.com/peterdwall/work-os/actions/workflows/build.yml)
+# skywire-linux
 
-See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
+This is a repo containing the files required to build a custom Fedora Atomic OS. You can visit the [BlueBuild documentation](https://blue-build.org/learn/getting-started/) for more info.
 
-After setup, it is recommended you update this README to describe your custom image.
+## Goals
 
-## Installation
+Create a Fedora Silverblue-based immutable OS for technician and callcenter use. The base system will include all packages needed for daily operation in the image, including:
 
-> **Warning**  
-> [This is an experimental feature](https://www.fedoraproject.org/wiki/Changes/OstreeNativeContainerStable), try at your own discretion.
+- Winbox 3
+- Winbox 4 (flatpak)
+- The Dude
+- Ultimate Back Office
+- LibreOffice
+- 3CX
+- Netinstall
+- Pre-set `udev` and `serial`
+- Post-installation scripts to set up Wireguard, extra optional packages, and anything else.
 
-To rebase an existing atomic Fedora installation to the latest build:
+## Usage
 
-- First rebase to the unsigned image, to get the proper signing keys and policies installed:
-  ```
-  rpm-ostree rebase ostree-unverified-registry:ghcr.io/peterdwall/work-os:latest
-  ```
-- Reboot to complete the rebase:
-  ```
-  systemctl reboot
-  ```
-- Then rebase to the signed image, like so:
-  ```
-  rpm-ostree rebase ostree-image-signed:docker://ghcr.io/peterdwall/work-os:latest
-  ```
-- Reboot again to complete the installation
-  ```
-  systemctl reboot
-  ```
+Right now, download this repo and follow the [BlueBuild documentation](https://blue-build.org/how-to/setup/) on how to build the image from the `build.yml` file. The ISO is too big to keep in this repo, so you'll have to build it yourself. It should take less than 20 minutes to build on any modern system.
 
-The `latest` tag will automatically point to the latest build. That build will still always use the Fedora version specified in `recipe.yml`, so you won't get accidentally updated to the next major version.
+To create an ISO file for installation, run this command after `bluebuild` has been installed:
 
-## ISO
+```
+sudo bluebuild generate-iso recipe recipes/generate-iso.yml
+```
 
-If build on Fedora Atomic, you can generate an offline ISO with the instructions available [here](https://blue-build.org/learn/universal-blue/#fresh-install-from-an-iso). These ISOs cannot unfortunately be distributed on GitHub for free due to large sizes, so for public projects something else has to be used for hosting.
+After installation, for now, you can rebase to the publicly hosted GitHub images
 
-## Verification
+```
+# Standard image
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/peterdwall/skywire-os:latest
 
-These images are signed with [Sigstore](https://www.sigstore.dev/)'s [cosign](https://github.com/sigstore/cosign). You can verify the signature by downloading the `cosign.pub` file from this repo and running the following command:
+# DX image
+rpm-ostree rebase ostree-image-signed:docker://ghcr.io/peterdwall/skywire-os-dx:latest
 
-```bash
-cosign verify --key cosign.pub ghcr.io/peterdwall/work-os
+```
+
+---
+
+To test builds directly, use these commands after downloading the repo:
+
+```
+# Standard image
+bluebuild switch recipes/recipe.yml
+
+# DX image
+bluebuild switch recipes/recipe-dx.yml
 ```

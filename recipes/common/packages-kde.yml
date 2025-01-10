@@ -2,9 +2,10 @@ modules:
   - type: rpm-ostree
     repos:
       - https://copr.fedorainfracloud.org/coprs/ublue-os/staging/repo/fedora-%OS_VERSION%/ublue-os-staging-fedora-%OS_VERSION%.repo
+#      - https://packages.microsoft.com/yumrepos/vscode/config.repo
 
     install:
-      # - auto-cpufreq
+#      - code # disabled, using flatpak for now
       - jq
       - micro
       - podman-compose
@@ -19,13 +20,7 @@ modules:
     remove:
       - firefox # remove system firefox to install Flatpak firefox
       - firefox-langpacks
-      # - gnome-terminal
-      # - gnome-terminal-nautilus
-      # - gnome-software-rpm-ostree
-      - gnome-tour
-      - yelp
-      - nvtop
-      - htop
+
 
 
   - type: default-flatpaks
@@ -35,14 +30,9 @@ modules:
       repo-name: flathub-system
       repo-title: "Flathub (System)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
-        - org.gnome.Loupe
-        - org.gnome.Papers
-        - org.gnome.TextEditor
-        - io.missioncenter.MissionCenter
-        - com.vixalien.sticky
         - com.mattjakeman.ExtensionManager
         - org.mozilla.firefox
-        - it.mijorus.gearlever
+        - org.libreoffice.LibreOffice
         - com.slack.Slack
         - com.mikrotik.WinBox
-        - org.libreoffice.LibreOffice        
+        - com.visualstudio.code

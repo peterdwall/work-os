@@ -2,17 +2,12 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-stage-list-v1.json
 
 name: skywire-os
-# description will be included in the image's metadata
 description: A stable Linux system for field technicians
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/silverblue-main
-# The above image is disabled to fix this issue: https://github.com/JasonN3/build-container-installer/issues/150
-#base-image: quay.io/fedora-ostree-desktops/silverblue
-image-version: 41 # latest is also supported if you want new updates ASAP
+image-version: 41
 
-# module configuration, executed in order
-# you can include multiple instances of the same module
 modules:
   - type: files
     files:
@@ -20,7 +15,8 @@ modules:
         destination: /usr
 
   - from-file: common/packages.yml
+  - from-file: common/cockpit.yml
   - from-file: common/extra_steps.yml
   - from-file: common/gnome-extensions.yml
 
-  - type: signing # this sets up the proper policy & signing files for signed images to work fully
+  - type: signing
