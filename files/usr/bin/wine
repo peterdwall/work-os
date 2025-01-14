@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# Use installed Flatpak Bottles as "system wine"
+# https://docs.usebottles.com/advanced/use-bottles-as-wine-command
+flatpak run --command='bottles-cli' com.usebottles.bottles run -b skywire-apps -e "$@"

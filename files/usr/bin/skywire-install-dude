@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+# Variables
+DUDE_VER=7.16.2
+WINBOX_VER=3.41
+BOTTLE_NAME=skywire-apps
+
+# TODO:
+# Add checks for if bottles is installed, if not, install it
+# Check if the bottle "skywire-apps" is already made, if so, don't create it
+# Check if one or both apps is already installed, if so, remove and re-install
+
+# Script sequence
+wget -O /tmp/dude.exe https://download.mikrotik.com/routeros/${DUDE_VER}/dude-install-${DUDE_VER}.exe
+wget -O /tmp/winbox.exe https://download.mikrotik.com/routeros/winbox/${WINBOX_VER}/winbox64.exe
+
+mkdir /tmp/dude
+
+7z e -y -o"/tmp/dude" "/tmp/dude.exe"
+
+flatpak run --command=bottles-cli com.usebottles.bottles new --bottle-name=$BOTTLE_NAME --environment application
+
+cp -r /tmp/dude /var/home/$USER/.var/app/com.usebottles.bottles/data/bottles/bottles/skywire-apps/drive_c
+cp /tmp/winbox.exe /var/home/$USER/.var/app/com.usebottles.bottles/data/bottles/bottles/skywire-apps/drive_c/winbox.exe
+
+flatpak run --command=bottles-cli com.usebottles.bottles add -b $BOTTLE_NAME -n "The Dude" -p "/var/home/$USER/.var/app/com.usebottles.bottles/data/bottles/bottles/skywire-apps/drive_c/dude/dude.exe"
+flatpak run --command=bottles-cli com.usebottles.bottles add -b $BOTTLE_NAME -n "Winbox (Legacy)" -p "/var/home/$USER/.var/app/com.usebottles.bottles/data/bottles/bottles/skywire-apps/drive_c/winbox.exe"

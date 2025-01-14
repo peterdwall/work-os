@@ -75,6 +75,7 @@ modules:
         - io.github.flattool.Warehouse
         - org.mozilla.firefox
         - it.mijorus.gearlever
+        - com.usebottles.bottles
         - org.libreoffice.LibreOffice
         - com.visualstudio.code
         - com.slack.Slack

@@ -33,6 +33,7 @@ modules:
         - com.mattjakeman.ExtensionManager
         - org.mozilla.firefox
         - org.libreoffice.LibreOffice
+        - com.usebottles.bottles
         - com.slack.Slack
         - com.mikrotik.WinBox
         - com.visualstudio.code

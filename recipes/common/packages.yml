@@ -43,6 +43,7 @@ modules:
         - com.mattjakeman.ExtensionManager
         - org.mozilla.firefox
         - it.mijorus.gearlever
+        - com.usebottles.bottles
         - com.slack.Slack
         - com.mikrotik.WinBox
         - org.libreoffice.LibreOffice        
