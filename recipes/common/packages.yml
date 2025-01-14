@@ -15,6 +15,9 @@ modules:
       - nautilus-python
       - nautilus-extensions
       - python3-pip
+      - p7zip
+      - p7zip-plugins
+
 
     remove:
       - firefox # remove system firefox to install Flatpak firefox
